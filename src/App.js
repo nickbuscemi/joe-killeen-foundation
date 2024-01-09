@@ -1,25 +1,61 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { FlipNavWrapper } from './Components/NavBar/Navbar';
+import { Hero } from './Components/Hero/Hero'
+import { Footer } from './Components/Footer/Footer';
+import { About } from './Components/About/About';
+import { Impact } from './Components/Impact/Impact';
+import { Events } from './Components/Events/Events';
+import { Home } from './Components/Home/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div className='app-wrapper'>
+        <FlipNavWrapper />
+          <Routes>
+            <Route path={"/" || ""} 
+              element={
+                <>
+                  <div className='background-image-wrapper'>
+                    <Hero />
+                  </div>
+                  <Home />
+                </>
+            } 
+            />
+            <Route path="/About" element={
+              <>
+                <Hero />
+                <About />
+              </>
+            }
+            />
+            <Route path="/Impact" element={
+              <>
+                <Hero />
+                <Impact />
+              </>
+            }
+            />
+            <Route path="/Events" element={
+              <>
+                <Hero />
+                <Events />
+              </>
+            }
+            />
+          </Routes>
+        <div className='footer-wrapper'>
+          <Footer />
+        </div>
+      </div>
+    </Router>
+    
+  )
 }
 
 export default App;

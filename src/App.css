@@ -1,3 +1,5 @@
+/***** Main Css *****/
+
 .App {
   text-align: center;
 }
@@ -36,3 +38,19 @@
     transform: rotate(360deg);
   }
 }
+
+/***** App.js Css *****/
+
+@media (max-width: 768px) {
+  .background-image-wrapper {
+    @apply bg-fixed;
+  }
+}
+
+
+
+
+
+
+/* Other global styles */
+

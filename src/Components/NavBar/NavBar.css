@@ -1,0 +1,23 @@
+.navbar-fixed {
+    position: fixed; /* or absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: visibility 0.3s, opacity 0.3s;
+    background-color: white;
+  }
+  
+  .navbar-fixed.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .navbar-fixed.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+
+
+
+  
