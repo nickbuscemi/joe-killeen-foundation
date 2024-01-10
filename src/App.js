@@ -9,6 +9,7 @@ import { Impact } from './Components/Impact/Impact';
 import { Events } from './Components/Events/Events';
 import { Home } from './Components/Home/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Contact } from './Components/Contact/Contact';
 
 function App() {
 
@@ -45,6 +46,12 @@ function App() {
               <>
                 <Hero />
                 <Events />
+              </>
+            }
+            />
+            <Route path="/Contact" element={
+              <>
+                <Contact />
               </>
             }
             />

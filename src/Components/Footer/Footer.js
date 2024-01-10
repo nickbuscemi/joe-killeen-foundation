@@ -2,8 +2,8 @@ import ribbonlogo from '../../assets/images/ribbonlogo.jpg';
 
 export const Footer = () => {
     return (
-        <footer class="bg-white m-2">
-            <div class="w-full max-w-screen-xl mx-auto md:py-80">
+        <footer class="bg-carolina m-2 text-white">
+            <div class="w-full max-w-screen-xl mx-auto md:py-20">
                 <div class="sm:flex sm:items-center sm:justify-between">
                     <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                         <img src={ribbonlogo} class="h-8"/>
@@ -24,7 +24,7 @@ export const Footer = () => {
                         </li>
                     </ul>
                 </div>
-                <hr class="my-6 border-gray sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <hr class="my-6 border-gray sm:mx-auto dark:border-deepCarolina lg:my-8" />
                 <span class="block text-sm text-gray sm:text-center dark:text-gray">© 2023 <a href="https://flowbite.com/" class="hover:underline">The Joe Killeen Memorial Foundation</a>. All Rights Reserved.</span>
             </div>
         </footer>

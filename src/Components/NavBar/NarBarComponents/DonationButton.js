@@ -1,10 +1,9 @@
 import React from "react";
 //import "./styles.css";
 //import "./styles/tailwind-pre-build.css";
-//import { loadStripe } from "@stripe/stripe-js";
-/*const stripePromise = loadStripe(
-  ""
-);*/
+import { loadStripe } from "@stripe/stripe-js";
+const stripePromise = loadStripe(process.env.STRIPE_API_KEY);
+
 export const DonationButton = ({ itemID, ammount }) => {
  /*const handleClick = async (event) => {
     const stripe = await stripePromise;
