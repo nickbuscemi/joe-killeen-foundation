@@ -18,7 +18,7 @@ function App() {
       <div className='app-wrapper'>
         <FlipNavWrapper />
           <Routes>
-            <Route path={"/" || ""} 
+            <Route path={"/"} 
               element={
                 <>
                   <div className='background-image-wrapper'>

@@ -1,4 +1,6 @@
 import { Hero } from "../Hero/Hero"
+import killeenpic4 from '../../assets/images/killeenpic4.jpeg'
+import killeenpic3 from '../../assets/images/killeenpic3.jpg'
 
 export const About = () => {
     return (
@@ -8,8 +10,8 @@ export const About = () => {
                 The Joe Killeen Memorial Foundation
             </h2>
             <div className="flex flex-col lg:flex-row">
-                <div className="lg:w-1/2 p-4">
-                <img src="path_to_image.jpg" alt="Fred's Team Event" />
+                <div className="lg:w-1/2">
+                <img src={killeenpic3} alt="Fred's Team Event" />
                 </div>
                 <div className="lg:w-1/2 p-4 flex flex-col justify-center">
                 <p>
@@ -30,8 +32,8 @@ export const About = () => {
                 </p>
                 {/* Add more paragraphs or content as needed */}
                 </div>
-                <div className="lg:w-1/2 p-4">
-                <img src="path_to_image.jpg" alt="Fred's Team Event" />
+                <div className="lg:w-1/2">
+                <img src={killeenpic4} alt="Fred's Team Event" />
                 </div>
             </div>
         </div>

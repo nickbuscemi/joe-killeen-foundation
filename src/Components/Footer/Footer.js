@@ -2,7 +2,7 @@ import ribbonlogo from '../../assets/images/ribbonlogo.jpg';
 
 export const Footer = () => {
     return (
-        <footer class="bg-carolina m-2 text-white">
+        <footer class="bg-carolina text-white">
             <div class="w-full max-w-screen-xl mx-auto md:py-20">
                 <div class="sm:flex sm:items-center sm:justify-between">
                     <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">

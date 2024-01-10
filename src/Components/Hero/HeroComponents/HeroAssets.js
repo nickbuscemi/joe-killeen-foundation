@@ -22,7 +22,7 @@ export const HeroCarouselObj = [
         id: 3,
         src: killeenpic2,
         title: 'Impact',
-        caption: "",
+        caption: "Our Goals and What We\'ve Acheived",
     },
     {
         id: 4,
