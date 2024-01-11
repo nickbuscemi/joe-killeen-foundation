@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { FiMenu, FiArrowRight } from "react-icons/fi";
 import { DonationButton } from "./NarBarComponents/DonationButton";
-import ribbonlogo from '../../assets/images/ribbonlogo.jpg';
-import northcarolina from '../../assets/images/northcarolina.png';
-import facebookIcon from '../../assets/images/svgIcons/facebook.svg';
-import instagramIcon from '../../assets/images/svgIcons/instagram.svg';
-import twitterIcon from '../../assets/images/svgIcons/twitter.svg';
+import killeenlogolight from '../../assets/images/killeenlogolight.jpg'
 import '../NavBar/NavBar.css';
 
 export const FlipNavWrapper = () => {
@@ -50,7 +46,7 @@ const FlipNav = () => {
 
         <div className="flex-1 flex justify-start gap-20">
           <Link to="/" className="sm:pl-6 hidden lg:block">
-            <img src={northcarolina} style={{ width: '100px', height: 'auto' }} alt="Ribbon Logo" />
+            <img src={killeenlogolight} style={{ width: '180px', height: 'auto' }} alt="Ribbon Logo" />
           </Link>
           <NavLeft setIsOpen={setIsOpen} />
           <NavMenu isOpen={isOpen} />
