@@ -10,6 +10,7 @@ import { Events } from './Components/Events/Events';
 import { Home } from './Components/Home/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Contact } from './Components/Contact/Contact';
+import { EventDetail } from './Components/Events/EventsComponents/EventDetail';
 
 function App() {
 
@@ -46,6 +47,12 @@ function App() {
               <>
                 <Hero />
                 <Events />
+              </>
+            }
+            />
+            <Route path="/Events/:eventName" element={
+              <>
+                <EventDetail />
               </>
             }
             />

@@ -6,7 +6,7 @@ export const EventsCard = () => {
   return (
     <div className="flex flex-wrap justify-center gap-4 p-4">
       {upcomingEvents.map((event) => (
-        <Link to={event.actionUrl} key={event.id} style={{ width: '400px' }}>
+        <Link to={event.link} key={event.id} style={{ width: '400px' }}>
           <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} className="block border border-deepCarolina-200 overflow-hidden shadow-lg">
             <img src={event.image} alt={event.name} className="w-full h-64 object-cover"/>
             <div className="p-4 bg-white">
