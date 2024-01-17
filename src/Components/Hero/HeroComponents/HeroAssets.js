@@ -39,7 +39,7 @@ export const HeroCarouselObj = [
     },
     {
         id: 4,
-        src: killeenpic5,
+        src: killeenpic7,
         mobileSrc: killeenpic6Mobile,
         title: 'Events',
         caption: "Join Our Community",

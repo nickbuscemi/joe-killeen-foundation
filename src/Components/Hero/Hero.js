@@ -69,9 +69,11 @@ export const Hero = () => {
       }}>
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content flex flex-col justify-center items-center">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">{currentItem.title}</h1>
-          <p className="mb-5">{currentItem.caption}</p>
+        <div className="max-w-md mt-28">
+          <div>
+            <h1 className="mb-5 text-5xl font-bold">{currentItem.title}</h1>
+          </div>
+          <p className="mb-5 text-xl font-bold">{currentItem.caption}</p>
           {isHomePage && (
             <div className="flex flex-col items-center space-y-1 sm:space-y-2">
               <DonationButtonHero />
