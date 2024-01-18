@@ -1,127 +1,99 @@
+.progress-bg {
+    margin: 0 auto;
+    width: 80%; /* Adjusted to a percentage for responsiveness */
+    height: 5vw; /* Adjust height relative to viewport width */
+    max-height: 78px; /* Optional: to prevent it from becoming too big on large screens */
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: inset 0 0 20px #13294B;
+    background-color: #79add3;
+    box-sizing: border-box;
+}
 
-  
-  .progress-bg {
-      margin: 0 auto;
-      width: 65%;
-      height: 78px;
-      border-radius: 40px;
-    text-align: center;
-      -moz-box-shadow:    inset 0 0 10px #ccc;
-      -webkit-box-shadow: inset 0 0 10px #ccc;
-      box-shadow:         inset 0 0 10px #ccc;
-  }
-  
-  .progress-bar {
-      height: 78px;
-      border-radius: 40px;
-      float: left;
-      width: 50%;
-      /* fallback */ 
-      background-color: #13294B; 
-      
-      /* Safari 4-5, Chrome 1-9 */ 
-      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1c314a), to(#27425f)); 
-      
-      /* Safari 5.1, Chrome 10+ */ 
-      background: -webkit-linear-gradient(top, #1c314a, #27425f); 
-      
-      /* Firefox 3.6+ */ 
-      background: -moz-linear-gradient(top, #1c314a, #27425f); 
-      
-      /* IE 10 */ 
-      background: -ms-linear-gradient(top, #1c314a, #27425f); 
-      
-      /* Opera 11.10+ */ 
-      background: -o-linear-gradient(top, #1c314a, #27425f);	
-  }
-  
-  .progress-bg h3.goal, .progress-bg h3.raised {
-      font-family: Arial,sans-serif;
-    font-size: 2em;
+.progress-bar {
+    height: 100%; /* Use 100% to fill the container */
+    border-radius: inherit; /* Inherits the border-radius from the parent */
+    float: left;
+    background-color: #13294B;
+    /* Use a single line for the linear gradient for simplicity and broader support */
+    background: linear-gradient(to bottom, #1c314a, #27425f);
+    /* Animation properties */
+    box-sizing: border-box; /* Add this line */
+    max-width: 100%; /* Ensure it doesn't exceed the parent */
+    margin: 0; /* Reset margins */
+    padding: 0; /* Reset paddings */
+    -webkit-animation: progress-bar 2s ease forwards;
+    -moz-animation: progress-bar 2s ease forwards;
+    -o-animation: progress-bar 2s ease forwards;
+    animation: progress-bar 2s ease forwards;
+}
+.header-containers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 12%;
+    padding-right: 11%;
+}
+h3 {
+    font-family: Arial, sans-serif;
+    font-size: 3vw; /* Responsive font size */
     font-weight: 600;
-      line-height: 78px;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      display: inline;
-  }
-  
-  
-  .progress-bg h3.raised {
-      color: #fff;
-      margin: 14px 25px 0 50px;
-      padding: 0 25px 0 0;
-  }
-  
-  .progress-bg h3.goal {
-      color: #79add3;
+    line-height: normal;
+    margin: 0;
+    padding: 0px;
     text-align: center;
-  }
-  
-  body .progress-bg h3.raised {
-      -webkit-animation: fadein 4s; /* Safari and Chrome */
-         -moz-animation: fadein 4s; /* Firefox */
-          -ms-animation: fadein 4s; /* Internet Explorer */
-           -o-animation: fadein 4s; /* Opera */
-              animation: fadein 4s;
-  }
-  
-  @keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-  }
-  
-  /* Firefox */
-  @-moz-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-  }
-  
-  /* Safari and Chrome */
-  @-webkit-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-  }
-  
-  /* Internet Explorer */
-  @-ms-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-  }​
-  
-  /* Opera */
-​  
-  .progress-bg h3.goal {
-      float: right;
-      display: inline;
-      padding: 0 25px 0 0;
-    text-align: center;
-  }
-  
-  body .progress-bg div {
-      -webkit-animation: progress-bar 2s ease forwards;
-      -moz-animation: progress-bar 2s ease forwards;
-      -o-animation: progress-bar 2s ease forwards;
-      animation: progress-bar 2s ease forwards;
-  }
-  
-  @-webkit-keyframes progress-bar {
-      from { width: 0%; }
-      to { width: 50%; }
-  }
-  
-  @-moz-keyframes progress-bar {
-      from { width: 0%; }
-      to { width: 50%; }
-  }
-  
-  @-o-keyframes progress-bar {
-      from { width: 0%; }
-      to { width: 50%; }
-  }
-  
-  @keyframes progress-bar {
-      from { width: 0%; }
-      to { width: 50%; }
-  }
-  
+    /* Animation properties */
+    -webkit-animation: fadein 4s; /* Safari and Chrome */
+    -moz-animation: fadein 4s; /* Firefox */
+    -ms-animation: fadein 4s; /* Internet Explorer */
+    -o-animation: fadein 4s; /* Opera */
+    animation: fadein 4s;
+}
+
+h3.raised {
+    color: #13294B;
+    
+    padding: 20px 10px 0px 0;
+}
+h3.goal {
+    color: #79add3;
+    
+    padding: 20px 10px 0 0;
+}
+
+/* Animation keyframes */
+
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Adjustments for very small screens */
+@media (max-width: 480px) {
+    .progress-bg {
+        height: 10vw; /* Increase the height a bit as the viewport width is smaller */
+    }
+
+    .progress-bg h3 {
+        font-size: 4vw; /* Increase the font size for readability */
+    }
+}

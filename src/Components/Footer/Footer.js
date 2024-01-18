@@ -3,10 +3,10 @@ import killeenlogolight from '../../assets/images/killeenlogolight.jpg'
 
 export const Footer = () => {
     return (
-        <footer className="bg-deepCarolina">
+        <footer className="bg-deepCarolina  border-t">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
-                    <div className="mb-6 md:mb-0">
+                    <div className="mb-6 md:mb-0 ">
                         {/*<a href="/" className="flex items-center justify-center">
                             <img src={killeenlogolight} className="h-8 me-3" alt="FlowBite Logo" />                        
                         </a>*/}
@@ -37,10 +37,10 @@ export const Footer = () => {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
-                                    <a href="https://flowbite.com/" className="hover:underline">Flowbite</a>
+                                    <a href="https://flowbite.com/" className="hover:underline">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>
+                                    <a href="https://tailwindcss.com/" className="hover:underline">Our Sponsors</a>
                                 </li>
                             </ul>
                         </div>
@@ -48,10 +48,10 @@ export const Footer = () => {
                             <h2 className="mb-6 text-sm font-semibold uppercase text-white">Follow us</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
-                                    <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Github</a>
+                                    <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Facebook</a>
                                 </li>
                                 <li>
-                                    <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Discord</a>
+                                    <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Instagram</a>
                                 </li>
                             </ul>
                         </div>
@@ -70,7 +70,7 @@ export const Footer = () => {
                 </div>
                 <hr className="my-6 border-white sm:mx-auto lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" className="hover:underline">The Joe Killeen Memorial Foundation</a>. All Rights Reserved.</span>
                     <div className="flex mt-4 sm:justify-center sm:mt-0">
                         <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                             <svg

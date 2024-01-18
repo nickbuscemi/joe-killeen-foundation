@@ -144,9 +144,9 @@ export const EventsCard = () => {
       {upcomingEvents.map((event, index) => (
         <div key={index} className="item min-w-400 flex flex-wrap justify-center gap-4 p-4">
           <Link to={event.link} key={event.id} style={{ width: '400px' }}>
-              <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} className="block rounded overflow-hidden shadow-lg">
+              <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} className="block rounded-lg overflow-hidden shadow-lg">
                 <img src={event.image} alt={event.name} className="w-full h-64 object-cover"/>
-                <div className="p-4 bg-deepCarolina">
+                <div className="px-4 pt-4 pb-6 bg-deepCarolina">
                   <div className="mb-2 text-carolina text-sm uppercase tracking-wide font-semibold">{event.date}</div>
                   <h3 className="mb-2 text-xl font-bold text-white whitespace-nowrap overflow-hidden ">{event.name}</h3>
                   <p className="mb-4 text-base text-gray-100">{event.location}</p>
@@ -161,12 +161,12 @@ export const EventsCard = () => {
 
   const renderStackedCards = () => (
     <div>
-      <div className="flex flex-wrap justify-center gap-4 p-4">
+      <div className="flex flex-wrap justify-center gap-8 py-8">
         {displayedEvents.map((event) => (
-          <Link to={event.link} key={event.id} style={{ width: '400px' }}>
-            <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} className="block rounded overflow-hidden shadow-lg">
-              <img src={event.image} alt={event.name} className="w-full h-64 object-cover"/>
-              <div className="p-4 bg-deepCarolina">
+          <Link to={event.link} key={event.id} style={{ width: '300px', height: 'auto' }}>
+            <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} className="block rounded-lg overflow-hidden shadow-lg">
+              <img src={event.image} alt={event.name} className="w-full h-40 object-cover"/>
+              <div className="px-4 pt-4 pb-6 bg-deepCarolina">
                 <div className="mb-2 text-carolina text-sm uppercase tracking-wide font-semibold">{event.date}</div>
                 <h3 className="mb-2 text-xl font-bold text-white">{event.name}</h3>
                 <p className="mb-4 text-base text-gray-100">{event.location}</p>
