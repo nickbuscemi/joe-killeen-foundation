@@ -6,7 +6,7 @@ import { NavLink as RouterNavLink, useMatch, useResolvedPath } from 'react-route
 import { DonationButton } from "./NarBarComponents/DonationButton";
 import killeenlogolight from '../../assets/images/killeenlogolight.jpg';
 import killeenlogo from '../../assets/images/killeenlogo.jpg';
-import '../NavBar/NavBar.css';
+import './NavBar.css';
 
 export const FlipNavWrapper = () => {
   return (

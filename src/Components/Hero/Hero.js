@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
-import { DonationButtonHero } from "../Hero/HeroComponents/DonationButtonHero";
-import { HeroCarouselObj } from '../Hero/HeroComponents/HeroAssets';
+import { DonationButtonHero } from "./HeroComponents/DonationButtonHero";
+import { HeroCarouselObj } from './HeroComponents/HeroAssets';
 import { useLocation } from 'react-router-dom';
 import './Hero.css'
 

@@ -186,3 +186,4 @@ export const EventsCard = () => {
 
   return isMobile ? renderStackedCards() : renderCarousel();
 };
+

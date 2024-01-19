@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import ScrollToTop from './utils/ScrollToTop';
 import { FlipNavWrapper } from './Components/NavBar/Navbar';
 import { Hero } from './Components/Hero/Hero'
 import { Footer } from './Components/Footer/Footer';
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className='app-wrapper'>
         <FlipNavWrapper />
           <Routes>

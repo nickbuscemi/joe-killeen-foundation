@@ -7,7 +7,7 @@ import verticalIMG1 from '../../assets/images/592x822/verticalIMG1.jpg'
 import verticalIMG2 from '../../assets/images/592x822/verticalIMG2.jpeg'
 import verticalIMG3 from '../../assets/images/592x822/verticalIMG3.jpeg'
 import verticalIMG4 from '../../assets/images/592x822/verticalIMG4.jpg'
-import '../About/About.css';
+import './About.css';
 
 export const About = () => {
     return (
