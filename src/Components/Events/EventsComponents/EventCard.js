@@ -148,7 +148,7 @@ export const EventsCard = () => {
                 <img src={event.image} alt={event.name} className="w-full h-64 object-cover"/>
                 <div className="px-4 pt-4 pb-6 bg-deepCarolina">
                   <div className="mb-2 text-carolina text-sm uppercase tracking-wide font-semibold">{event.date}</div>
-                  <h3 className="mb-2 text-xl font-bold text-white whitespace-nowrap overflow-hidden ">{event.name}</h3>
+                  <h3 className="mb-2 text-left text-xl font-bold text-white whitespace-nowrap overflow-hidden ">{event.name}</h3>
                   <p className="mb-4 text-base text-gray-100">{event.location}</p>
                   <span className="whitespace-nowrap overflow-hidden text-overflow-ellipsis text-white bg-carolina hover:text-deepCarolina hover:bg-white focus:outline-none focus:ring-4 focus:ring-carolina-300 rounded-full text-md px-5 py-2.5 text-center dark:bg-carolina dark:hover:bg-white dark:focus:ring-carolina">Sign Up!</span>
                 </div>
@@ -168,7 +168,7 @@ export const EventsCard = () => {
               <img src={event.image} alt={event.name} className="w-full h-40 object-cover"/>
               <div className="px-4 pt-4 pb-6 bg-deepCarolina">
                 <div className="mb-2 text-carolina text-sm uppercase tracking-wide font-semibold">{event.date}</div>
-                <h3 className="mb-2 text-xl font-bold text-white">{event.name}</h3>
+                <h3 className="mb-2 text-left text-xl font-bold text-white">{event.name}</h3>
                 <p className="mb-4 text-base text-gray-100">{event.location}</p>
                 <span className="whitespace-nowrap overflow-hidden text-overflow-ellipsis text-white bg-carolina hover:text-deepCarolina hover:bg-white focus:outline-none focus:ring-4 focus:ring-carolina-300 rounded-full text-md px-5 py-2.5 text-center dark:bg-carolina dark:hover:bg-white dark:focus:ring-carolina">Sign Up!</span>
               </div>

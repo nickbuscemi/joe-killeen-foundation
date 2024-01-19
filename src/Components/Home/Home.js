@@ -4,7 +4,7 @@ import { DonationProgressBar } from '../Home/HomeComponents/DonationProgressBar'
 // WILL IMPORT DATA FROM API TO UPDATE PROGRESS BAR IN REAL TIME
 
 export const Home = () => {
-    const currentDonation = 14257; // Example current donation amount
+    const currentDonation = 17583; // Example current donation amount
     const goal = 100000; // Example goal
 
     return (

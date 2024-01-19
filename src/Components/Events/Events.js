@@ -7,7 +7,7 @@ export const Events = () => {
                 <h2 class="flex justify-center mb-4 mt-[-20px] text-4xl tracking-tight font-extrabold text-carolina">Upcoming Events</h2>
                 <EventsCard />
             </div>
-            <section class="dark:bg-deepCarolina p-16">
+            <section class="dark:bg-deepCarolina p-10">
                 <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:pb-16 lg:px-6">
                     <div class="font-light text-white sm:text-lg">
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Help us fundraise your way!</h2>
@@ -41,7 +41,7 @@ export const Events = () => {
                             <label htmlFor="message" className="mb-3 block text-base font-medium text-white">Message</label>
                             <textarea rows="4" name="message" id="message" placeholder="Tell Us Your Idea! Please include date, time , and desired location of your event" className="w-full resize-none rounded-md border border-carolina bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-deepCarolina focus:shadow-md"></textarea>
                         </div>
-                        <div className='flex justify-center items-center mb-5'>
+                        <div className='flex justify-center items-center'>
                             <button type="submit" className="whitespace-nowrap overflow-hidden text-overflow-ellipsis text-white dark:hover:text-deepCarolina bg-carolina hover:bg-white focus:outline-none focus:ring-4 focus:ring-carolina-300 font-extrabold rounded-full text-md px-5 py-2.5 text-center dark:bg-carolina dark:hover:bg-white dark:focus:ring-carolina">Submit</button>
                         </div>
                     </form>
