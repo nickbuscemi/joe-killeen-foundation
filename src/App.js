@@ -12,6 +12,8 @@ import { Home } from './Components/Home/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Contact } from './Components/Contact/Contact';
 import { EventDetail } from './Components/Events/EventsComponents/EventDetail';
+import { CheckoutForm, Return } from './Components/Stripe/PaymentForm';
+
 
 function App() {
 
@@ -31,7 +33,7 @@ function App() {
                 </>
             } 
             />
-            <Route path="/About" element={
+            <Route path="/about" element={
               <>
                 <Hero />
                 <About />
@@ -45,26 +47,39 @@ function App() {
               </>
             }
             />
-            <Route path="/Events" element={
+            <Route path="/events" element={
               <>
                 <Hero />
                 <Events />
               </>
             }
             />
-            <Route path="/Events/:eventName" element={
+            <Route path="/events/:eventName" element={
               <>
                 <EventDetail />
               </>
             }
             />
-            <Route path="/Contact" element={
+            <Route path="/contact" element={
               <>
                 <Contact />
               </>
             }
             />
+            <Route path="/donate" element={
+              <>  
+                <CheckoutForm />
+              </>
+            } 
+            />
+            <Route path="/return" element={
+              <>  
+                <Return />
+              </>
+            } 
+            />
           </Routes>
+          
         <div className='footer-wrapper'>
           <Footer />
         </div>
@@ -75,3 +90,19 @@ function App() {
 }
 
 export default App;
+
+
+/*export const PaymentForm = () => {
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/donate" element={<CheckoutForm />} />
+          <Route path="/return" element={<Return />} />
+        </Routes>
+      </Router>
+    </div>
+  )
+}
+
+export default PaymentForm;*/

@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { DonationButtonHero } from "./HeroComponents/DonationButtonHero";
+import { DonationButton } from "../Stripe/DonationButton";
 import { HeroCarouselObj } from './HeroComponents/HeroAssets';
 import { useLocation } from 'react-router-dom';
 import './Hero.css'
@@ -76,7 +76,7 @@ export const Hero = () => {
           <p className="mb-5 text-xl font-bold">{currentItem.caption}</p>
           {isHomePage && (
             <div className="flex flex-col items-center space-y-1 sm:space-y-2">
-              <DonationButtonHero />
+              <DonationButton />
             </div>
           )}
         </div>

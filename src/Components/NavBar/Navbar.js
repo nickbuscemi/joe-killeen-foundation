@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { FiMenu, FiArrowRight } from "react-icons/fi";
 import { NavLink as RouterNavLink, useMatch, useResolvedPath } from 'react-router-dom';
-import { DonationButton } from "./NarBarComponents/DonationButton";
+import { DonationButton } from "../Stripe/DonationButton";
 import killeenlogolight from '../../assets/images/killeenlogolight.jpg';
 import killeenlogo from '../../assets/images/killeenlogo.jpg';
 import './NavBar.css';
@@ -56,7 +56,7 @@ const FlipNav = () => {
   return (
     
     <nav className={`navbar-fixed ${!isScrolled || isMouseNearTop ? 'visible' : 'hidden'}`}>
-      <nav className={`flex justify-between items-center bg-transparent w-full max-w-screen-xl mx-auto py-4 md:py-6 lg:py-11 ${isScrolled ? 'scrolled-nav' : ''}`}>
+      <nav className={`flex justify-between items-center bg-transparent w-full max-w-screen-xl mx-auto py-6 md:py-6 lg:py-12 ${isScrolled ? 'scrolled-nav' : ''}`}>
         <div className="flex-1 flex justify-start gap-20">
           <Link to="/" className="sm:pl-6 hidden lg:block">
             <img src={killeenlogo} style={{ width: '180px', height: 'auto' }} alt="Ribbon Logo" />
