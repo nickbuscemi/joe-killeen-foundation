@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ScrollToTop from './utils/ScrollToTop';
 import { FlipNavWrapper } from './Components/NavBar/Navbar';
 import { Hero } from './Components/Hero/Hero'
@@ -12,7 +12,11 @@ import { Home } from './Components/Home/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Contact } from './Components/Contact/Contact';
 import { EventDetail } from './Components/Events/EventsComponents/EventDetail';
-import { CheckoutForm, Return } from './Components/Stripe/PaymentForm';
+//import Payment from './Components/Stripe/Payment';
+//import Completion from './Components/Stripe/Completion';
+
+
+//import {loadStripe} from '@stripe/stripe-js';
 
 
 function App() {
@@ -66,23 +70,13 @@ function App() {
               </>
             }
             />
-            <Route path="/donate" element={
-              <>  
-                <CheckoutForm />
-              </>
-            } 
-            />
-            <Route path="/return" element={
-              <>  
-                <Return />
-              </>
-            } 
-            />
+            {/*<Route path="/test" element={<Payment stripePromise={stripePromise} />} />
+            <Route path="/completion" element={<Completion stripePromise={stripePromise} />} />*/}
           </Routes>
           
         <div className='footer-wrapper'>
           <Footer />
-        </div>
+          </div>
       </div>
     </Router>
     
@@ -90,19 +84,3 @@ function App() {
 }
 
 export default App;
-
-
-/*export const PaymentForm = () => {
-  return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/donate" element={<CheckoutForm />} />
-          <Route path="/return" element={<Return />} />
-        </Routes>
-      </Router>
-    </div>
-  )
-}
-
-export default PaymentForm;*/

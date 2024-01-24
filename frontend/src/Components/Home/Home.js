@@ -20,19 +20,19 @@ export const Home = () => {
             <DonationProgressBar currentDonation={currentDonation} goal={goal} />
             {/* Other content */}
             </div>
-            <section class="dark:bg-white">
-                <div class="flex flex-col lg:grid lg:grid-cols-2 grid-cols-1 gap-16 items-center justify-center py-8 px-8 lg:px-0 mx-auto max-w-screen-xl lg:pb-16 lg:px-6">
+            <section className="dark:bg-white">
+                <div className="flex flex-col lg:grid lg:grid-cols-2 grid-cols-1 gap-16 items-center justify-center py-8 px-8 lg:px-0 mx-auto max-w-screen-xl lg:pb-16 lg:px-6">
                     
-                    <div class="order-2 lg:order-1">
-                        <div class="grid grid-cols-1">
+                    <div className="order-2 lg:order-1">
+                        <div className="grid grid-cols-1">
                             <RenderStackedCard event={mostRecentEvent} />
                         </div>
                     </div>
                     
-                    <div class="order-1 lg:order-2 font-light text-deepCarolina sm:text-lg">
-                        <h2 class="text-center lg:text-left mb-4 text-4xl tracking-tight font-extrabold text-carolina">Join us in {`${mostRecentEvent.date.split(' ')[0]}`} for our next event</h2>
+                    <div className="order-1 lg:order-2 font-light text-deepCarolina sm:text-lg">
+                        <h2 className="text-center lg:text-left mb-4 text-4xl tracking-tight font-extrabold text-carolina">Join us in {`${mostRecentEvent.date.split(' ')[0]}`} for our next event</h2>
                         <p className='text-center lg:text-left mb-4 text-2xl tracking-tight text-carolina'>{`${mostRecentEvent.name}`}</p>
-                        <p class="text-center lg:text-left text-deepCarolina">Donec porttitor, enim ut dapibus lobortis, lectus sem tincidunt dui, eget ornare lectus ex non
+                        <p className="text-center lg:text-left text-deepCarolina">Donec porttitor, enim ut dapibus lobortis, lectus sem tincidunt dui, eget ornare lectus ex non
                                         libero. Nam rhoncus diam ultrices porttitor laoreet. Ut mollis fermentum ex, vel viverra lorem
                                         volutpat sodales. In ornare porttitor odio sit amet laoreet. Sed laoreet, nulla a posuere
                                         ultrices, purus nulla tristique turpis, hendrerit rutrum augue quam ut est. Fusce malesuada

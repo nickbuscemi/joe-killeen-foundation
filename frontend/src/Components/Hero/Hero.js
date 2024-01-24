@@ -10,9 +10,6 @@ export const Hero = () => {
   const location = useLocation();
   const path = location.pathname;
 
-  console.log('Current path:', path); // Debugging line
-
-
   let currentItem;
 
   const pathToIndexMap = {

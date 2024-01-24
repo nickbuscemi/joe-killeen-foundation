@@ -4,14 +4,14 @@ export const Events = () => {
     return (
         <div>
             <div className=" bg-white px-4 sm:px-10 md:px-20 lg:px-60 py-16"> {/* This applies the same horizontal padding as your footer */}
-                <h2 class="flex justify-center mb-4 mt-[-20px] text-4xl tracking-tight font-extrabold text-carolina">Upcoming Events</h2>
+                <h2 className="flex justify-center mb-4 mt-[-20px] text-4xl tracking-tight font-extrabold text-carolina">Upcoming Events</h2>
                 <EventsCard />
             </div>
-            <section class="dark:bg-deepCarolina p-10">
-                <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:pb-16 lg:px-6">
-                    <div class="font-light text-white sm:text-lg">
-                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Help us fundraise your way!</h2>
-                        <p class="mb-4"> Do you have an idea about how you can help our cause?
+            <section className="dark:bg-deepCarolina p-10">
+                <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:pb-16 lg:px-6">
+                    <div className="font-light text-white sm:text-lg">
+                        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Help us fundraise your way!</h2>
+                        <p className="mb-4"> Do you have an idea about how you can help our cause?
                         </p>
                         <p> Please reach out to us to set up your own event with the Joe Killeen Memorial Foundation. We would love to hear from you!
                         </p>
