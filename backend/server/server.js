@@ -4,12 +4,12 @@ const {resolve} = require('path');
 //const env = require('dotenv').config({path: './.env'});
 require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const nodemailer = require('nodemailer');
 const app = express();
 
 
 // MongoDB URI and CLIENT setup
 const uri = `mongodb+srv://killeen:${process.env.MONGO_DB_PASS}@joekilleenfoundation.xna8oil.mongodb.net/?retryWrites=true&w=majority`;
-
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -32,6 +32,20 @@ async function connectToMongoDB() {
 
 const contactFormData = client.db("_joekilleenfoundationDB").collection("_contactformdata");
 
+// nodemailer config
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+      user: process.env.GMAIL_USER, // Your email
+      pass: process.env.GMAIL_APP_PASS // Your app password
+  }
+});
+
+
+
 app.use(express.static(process.env.STATIC_DIR));
 app.use(express.json());
 app.use(cors({
@@ -39,28 +53,59 @@ app.use(cors({
 }));
 
 
-// Define your routes
+// routes
 app.post('/submit-form', async (req, res) => {
-  // ...
-  const { firstName, lastName, phoneNumber, email } = req.body;
-  
-  try {
-    // Check if an entry with the same first name, last name, and email already exists
-    const existingEntry = await contactFormData.findOne({ firstName, lastName, phoneNumber, email });
+    const { firstName, lastName, phoneNumber, email, subject, message } = req.body;
 
-    if (existingEntry) {
-      // Entry exists, just respond with a message
-      res.status(200).send('Entry already exists, no update made to the database');
-    } else {
-      // Insert new entry
-      await contactFormData.insertOne({ firstName, lastName, phoneNumber, email });
-      res.status(200).send('Form data saved successfully');
+    try {
+      // Email to the client
+      const clientMailOptions = {
+        from: process.env.GMAIL_USER,
+        to: email,
+        subject: 'Confirmation of Your Submission',
+        text: `Hello ${firstName},\n\nThank you for reaching out to us. We have received your submission and will get back to you soon.\n\nBest Regards,\nThe Joe Killeen Memorial Foundation.`
+      };
+
+      // Email to yourself
+      const adminMailOptions = {
+        from: email,
+        to: process.env.GMAIL_USER, // Your (admin's) email address
+        subject: 'New Contact Form Submission',
+        text: `New submission received:\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phoneNumber}\n\nSubject: ${subject}\nMessage: ${message}`
+      };
+
+      // Send emails
+      transporter.sendMail(clientMailOptions, function(error, info) {
+        if (error) {
+          console.error('Error sending email to client:', error);
+        } else {
+          console.log('Confirmation email sent to client: ' + info.response);
+        }
+      });
+
+      transporter.sendMail(adminMailOptions, function(error, info) {
+        if (error) {
+          console.error('Error sending email to admin:', error);
+        } else {
+          console.log('Email sent to admin: ' + info.response);
+        }
+      });
+
+      // Check if an entry with the same first name, last name, and email already exists
+      const existingEntry = await contactFormData.findOne({ firstName, lastName, phoneNumber, email });
+
+      if (!existingEntry) {
+        // Insert new entry if it doesn't exist
+        await contactFormData.insertOne({ firstName, lastName, phoneNumber, email });
+      }
+
+      res.status(200).send('Emails sent and form data processed successfully');
+    } catch (error) {
+      console.error('Error processing request:', error);
+      res.status(500).send('Error processing your request');
     }
-  } catch (error) {
-    console.error('Error processing request:', error);
-    res.status(500).send('Error processing your request');
-  }
 });
+
 
 app.get('/', (req, res) => {
   const path = resolve(process.env.STATIC_DIR + '/index.html');
