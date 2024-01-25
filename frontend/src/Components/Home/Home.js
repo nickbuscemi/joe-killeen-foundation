@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { DonationProgressBar } from './HomeComponents/DonationProgressBar';
 import verticalIMG1 from '../../assets/images/592x822/verticalIMG1.jpg'
 import verticalIMG3 from '../../assets/images/592x822/verticalIMG3.jpeg'
@@ -8,10 +9,25 @@ import { RenderStackedCard } from '../Events/EventsComponents/EventCardForHome';
 // WILL IMPORT DATA FROM API TO UPDATE PROGRESS BAR IN REAL TIME
 
 export const Home = () => {
-    const currentDonation = 17583; // Example current donation amount
-    const goal = 100000; // Example goal
+    /*const currentDonation = 17583; // Example current donation amount
+    const goal = 100000; // Example goal*/
+
+    const [currentDonation, setCurrentDonation] = useState(0);
+    const goal = 10000; // Example goal
+
 
     const mostRecentEvent = upcomingEvents[1];
+
+    // In your React component
+    useEffect(() => {
+        fetch('http://localhost:4242/api/donations/total')
+        .then(response => response.json())
+        .then(data => {
+            setCurrentDonation(data.totalDonations / 100); // Converting to dollars
+        })
+        .catch(error => console.error('Error fetching donation data:', error));
+    }, []);
+  
 
     return (
         <div>

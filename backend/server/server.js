@@ -5,9 +5,11 @@ const {resolve} = require('path');
 require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const nodemailer = require('nodemailer');
+const Stripe = require('stripe');
 const app = express();
 
-
+// stripe api secret key
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 // MongoDB URI and CLIENT setup
 const uri = `mongodb+srv://killeen:${process.env.MONGO_DB_PASS}@joekilleenfoundation.xna8oil.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -54,6 +56,40 @@ app.use(cors({
 
 
 // routes
+
+app.get('/api/donations/total', async (req, res) => {
+  try {
+    const response = await fetch('https://api.stripe.com/v1/charges', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${stripeSecretKey}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    });
+    const data = await response.json();
+
+    // Sum up the total donations
+    const totalDonations = data.data
+      .filter(charge => charge.paid) // Ensure the charge was successful
+      .reduce((acc, charge) => acc + (charge.amount - charge.amount_refunded), 0);
+
+    // Sum up the total authorized amounts
+    const totalAmountAuthorized = data.data
+      .filter(charge => charge.payment_method_details && charge.payment_method_details.card)
+      .reduce((acc, charge) => acc + (charge.payment_method_details.card.amount_authorized || 0), 0);
+
+    console.log("Total Donations: ", totalDonations);
+    console.log("Total Amount Authorized: ", totalAmountAuthorized);
+
+    // Send a single response with both totals
+    res.json({ totalDonations, totalAmountAuthorized });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 app.post('/submit-form', async (req, res) => {
     const { firstName, lastName, phoneNumber, email, subject, message } = req.body;
 
