@@ -32,7 +32,10 @@ async function connectToMongoDB() {
   }
 }
 
+// database collections
 const contactFormData = client.db("_joekilleenfoundationDB").collection("_contactformdata");
+const newsletterParticipants = client.db("_joekilleenfoundationDB").collection("_newsletterparticipants");
+
 
 // nodemailer config
 const transporter = nodemailer.createTransport({
@@ -57,6 +60,7 @@ app.use(cors({
 
 // routes
 
+// get total donations for progress bar
 app.get('/api/donations/total', async (req, res) => {
   try {
     const response = await fetch('https://api.stripe.com/v1/charges', {
@@ -73,23 +77,18 @@ app.get('/api/donations/total', async (req, res) => {
       .filter(charge => charge.paid) // Ensure the charge was successful
       .reduce((acc, charge) => acc + (charge.amount - charge.amount_refunded), 0);
 
-    // Sum up the total authorized amounts
-    const totalAmountAuthorized = data.data
-      .filter(charge => charge.payment_method_details && charge.payment_method_details.card)
-      .reduce((acc, charge) => acc + (charge.payment_method_details.card.amount_authorized || 0), 0);
-
     console.log("Total Donations: ", totalDonations);
-    console.log("Total Amount Authorized: ", totalAmountAuthorized);
 
     // Send a single response with both totals
-    res.json({ totalDonations, totalAmountAuthorized });
+    res.json({ totalDonations });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: error.message });
   }
+
 });
 
-
+// contact form submission
 app.post('/submit-form', async (req, res) => {
     const { firstName, lastName, phoneNumber, email, subject, message } = req.body;
 
@@ -141,6 +140,46 @@ app.post('/submit-form', async (req, res) => {
       res.status(500).send('Error processing your request');
     }
 });
+
+
+// post emails to db for newsletter
+app.post('/newsletter-subscribe', async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    // Check if email is already receiving the newsletter
+    const existingEmail = await newsletterParticipants.findOne({ email });
+    if (existingEmail) {
+      return res.status(200).send('Email already registered for newsletter');
+    }
+
+    // Email to the client
+    const clientMailOptions = {
+      from: process.env.GMAIL_USER,
+      to: email,
+      subject: 'Subscription to Newsletter',
+      text: `Hello,\n\nThank you for subscribing to our Newsletter! \n\nBest Regards,\nThe Joe Killeen Memorial Foundation.`
+    };
+
+    // Send email
+    transporter.sendMail(clientMailOptions, function(error, info) {
+      if (error) {
+        console.error('Error sending email to subscriber:', error);
+      } else {
+        console.log('Confirmation email sent to subscriber: ' + info.response);
+      }
+    });
+
+    // Add email to the database
+    await newsletterParticipants.insertOne({ email });
+
+    res.status(200).send('Subscription successful and email added to the newsletter');
+  } catch (error) {
+    console.error('Error processing request:', error);
+    res.status(500).send('Error processing your request');
+  }
+});
+
 
 
 app.get('/', (req, res) => {

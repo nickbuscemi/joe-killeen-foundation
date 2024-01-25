@@ -21,11 +21,16 @@ export const Home = () => {
     // In your React component
     useEffect(() => {
         fetch('http://localhost:4242/api/donations/total')
-        .then(response => response.json())
-        .then(data => {
-            setCurrentDonation(data.totalDonations / 100); // Converting to dollars
-        })
-        .catch(error => console.error('Error fetching donation data:', error));
+            .then(response => {
+                if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                setCurrentDonation(data.totalDonations / 100); // Converting to dollars
+            })
+            .catch(error => console.error('Error fetching donation data:', error));
     }, []);
   
 

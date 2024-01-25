@@ -2,6 +2,16 @@
 
 This is the official Website of The Joe Killeen Memorial Foundation.
 
+# Tech Stack
+
+Front end: React, tailwind css
+
+Backend:
+Payment - stripe checkout
+Database - mongoDB
+Server - express node.js
+image storage/hosting - 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
