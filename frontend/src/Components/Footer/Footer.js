@@ -68,7 +68,7 @@ export const Footer = () => {
                             {isSubmitted ? (
                             <div className="text-center">
                                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Thank you for subscribing!</h2>
-                                <p className="text-gray-600 dark:text-gray-400">You will now receive the latest updates.</p>
+                                <p className="text-gray-600 dark:text-gray-400">You will now receive the latest updates! If you would like to unsubcribe please contact us.</p>
                             </div>
                         ) : (
                             <div className="mx-auto max-w-screen-md sm:text-center">

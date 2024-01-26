@@ -35,7 +35,7 @@ async function connectToMongoDB() {
 // database collections
 const contactFormData = client.db("_joekilleenfoundationDB").collection("_contactformdata");
 const newsletterParticipants = client.db("_joekilleenfoundationDB").collection("_newsletterparticipants");
-
+const eventSignUpData = client.db("_joekilleenfoundationDB").collection("_eventsignupdata");
 
 // nodemailer config
 const transporter = nodemailer.createTransport({

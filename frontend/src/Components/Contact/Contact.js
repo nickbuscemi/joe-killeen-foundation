@@ -236,7 +236,7 @@ export const Contact = () => {
                                 type="text" 
                                 name="subject" 
                                 id="subject" 
-                                placeholder="Last Name" 
+                                placeholder="Subject" 
                                 value={formData.subject} 
                                 onChange={handleChange}
                                 className="w-full rounded-md border border-carolina bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-deepCarolina focus:shadow-md" 
